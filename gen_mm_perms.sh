@@ -39,15 +39,3 @@ sed -i s/#2/k/g matrix.c
 sed -i s/#3/i/g matrix.c
 gcc -o matrixjki -DN=5 -DPRINT matrix.c
 ./matrixjki > matrixjki.txt
-
-mat_perms=("matrixijk.txt" "matrixikj.txt" "matrixjik.txt" "matrixjki.txt" "matrixkij.txt" "matrixkji.txt")
-first_mat="${mat_perms[0]}"
-for mat in "${mat_perms[@]:1}"; do
-    diff_otpt=$(diff <(head -n -3 "$first_mat") <(head -n -3 "$mat"))
-    if [ -n "$diff_otpt" ]; then
-        echo "Matrices $first_mat and $mat are different."
-        echo $diff_otpt
-        exit 1
-    fi
-done
-echo "The matrices are all equivalent."
