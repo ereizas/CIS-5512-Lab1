@@ -1,5 +1,5 @@
 n=5
-if [ $#==1 ]; then
+if [ $# -eq 1 ]; then
     n=$1
 fi
 cp matrixSource.c matrix.c
