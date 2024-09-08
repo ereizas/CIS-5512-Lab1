@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 	for (#2 = 0; #2 < N; #2++) {
 		a[#1][#2] = 1 + (int)(NUMLIMIT*rand() / (RAND_MAX + 1.0));
 		b[#1][#2] = (double)(rand() % RANDLIMIT);
-
+		c[#1][#2] = 0;
 	}
 
 #ifdef PRINT
@@ -51,12 +51,11 @@ int main(int argc, char *argv[])
 #endif
 
 	gettimeofday(&start, 0);
-
+	
 	for (#1 = 0; #1 < N; #1++) {
 		for (#2 = 0; #2 < N; #2++) {
-			c[#1][#2] = 0.0;
 			for (#3 = 0; #3 < N; #3++)
-				c[#1][#2] = c[#1][#2] + a[#1][#3] * b[#3][#2];
+				c[i][j] = c[i][j] + a[i][k] * b[k][j];
 		} /* end #2 loop */
 	}
 
