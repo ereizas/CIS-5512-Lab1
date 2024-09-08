@@ -6,7 +6,6 @@
 #include <assert.h>
 
 #define RANDLIMIT	5	/* Magnitude limit of generated randno.*/
-#define N		4  	/* Matrix Size */
 #define NUMLIMIT 70.0
 
 float a[N][N];
@@ -16,49 +15,49 @@ float c[N][N];
 int main(int argc, char *argv[])
 {
 	struct timeval start, stop;
-	int i, j, k;
+	int #1, #2, #3;
 
 
 	/* generate mxs  */
-	for (i = 0; i < N; i++)
-	for (j = 0; j < N; j++) {
-		a[i][j] = 1 + (int)(NUMLIMIT*rand() / (RAND_MAX + 1.0));
-		b[i][j] = (double)(rand() % RANDLIMIT);
+	for (#1 = 0; #1 < N; #1++)
+	for (#2 = 0; #2 < N; #2++) {
+		a[#1][#2] = 1 + (int)(NUMLIMIT*rand() / (RAND_MAX + 1.0));
+		b[#1][#2] = (double)(rand() % RANDLIMIT);
 
 	}
 
 #ifdef PRINT
 	/* print matrices */
 	printf("Matrix A:\n");
-	for (i = 0; i < N; i++){
-		for (j = 0; j < N; j++)
-			printf("%.3f\t", a[i][j]);
+	for (#1 = 0; #1 < N; #1++){
+		for (#2 = 0; #2 < N; #2++)
+			printf("%.3f\t", a[#1][#2]);
 		printf("\n");
 	}
 
 	printf("Matrix B:\n");
-	for (i = 0; i < N; i++){
-		for (j = 0; j < N; j++)
-			printf("%.3f\t", b[i][j]);
+	for (#1 = 0; #1 < N; #1++){
+		for (#2 = 0; #2 < N; #2++)
+			printf("%.3f\t", b[#1][#2]);
 		printf("\n");
 	}
 
 	printf("Matrix C:\n");
-	for (i = 0; i < N; i++){
-		for (j = 0; j < N; j++)
-			printf("%.3f\t", c[i][j]);
+	for (#1 = 0; #1 < N; #1++){
+		for (#2 = 0; #2 < N; #2++)
+			printf("%.3f\t", c[#1][#2]);
 		printf("\n");
 	}
 #endif
 
 	gettimeofday(&start, 0);
 
-	for (i = 0; i < N; i++) {
-		for (j = 0; j < N; j++) {
-			c[i][j] = 0.0;
-			for (k = 0; k < N; k++)
-				c[i][j] = c[i][j] + a[i][k] * b[k][j];
-		} /* end j loop */
+	for (#1 = 0; #1 < N; #1++) {
+		for (#2 = 0; #2 < N; #2++) {
+			c[#1][#2] = 0.0;
+			for (#3 = 0; #3 < N; #3++)
+				c[#1][#2] = c[#1][#2] + a[#1][#3] * b[#3][#2];
+		} /* end #2 loop */
 	}
 
 	gettimeofday(&stop, 0);
@@ -66,9 +65,9 @@ int main(int argc, char *argv[])
 #ifdef PRINT
 	/* print results*/
 	printf("Answer c:\n");
-	for (i = 0; i < N; i++){
-		for (j = 0; j < N; j++)
-			printf("%.3f\t", c[i][j]);
+	for (#1 = 0; #1 < N; #1++){
+		for (#2 = 0; #2 < N; #2++)
+			printf("%.3f\t", c[#1][#2]);
 		printf("\n");
 	}
 #endif
