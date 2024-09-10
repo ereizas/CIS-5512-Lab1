@@ -1,11 +1,10 @@
 //From https://www.interviewbit.com/courses/programming/arrays/insertion-sort-algorithm/#examples
 #include <stdio.h>
+#include <stdlib.h>
 #include <stdbool.h>
 #include <sys/time.h>
 
-#define MAX 7	//defining size of our array
-
-int intArray[MAX] = {4,6,3,2,1,9,7};
+int intArray[MAX];
 
 void printline(int count) {
   int i;
@@ -67,6 +66,9 @@ void insertionSort() {
 }
 
 void main() {
+    for(int i=0; i<MAX; i++){
+        intArray[i]=rand()%MAX;
+    }
   printf("Input Array: ");
   display();
   printline(50);
