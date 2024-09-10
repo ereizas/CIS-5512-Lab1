@@ -1,6 +1,7 @@
 //From https://www.interviewbit.com/courses/programming/arrays/insertion-sort-algorithm/#examples
 #include <stdio.h>
 #include <stdbool.h>
+#include <sys/time.h>
 
 #define MAX 7	//defining size of our array
 
@@ -29,7 +30,8 @@ void display() {
 }
 
 void insertionSort() {
-
+  struct timeval start, stop;   
+  gettimeofday(&start, 0);
   int valueToInsert;
   int holePosition;
   int i;
@@ -47,19 +49,21 @@ void insertionSort() {
      while (holePosition > 0 && intArray[holePosition-1] > valueToInsert) {
         intArray[holePosition] = intArray[holePosition-1];
         holePosition--;
-        printf(" item moved : %d\n" , intArray[holePosition]);
+        //printf(" item moved : %d\n" , intArray[holePosition]);
      }
 
      if(holePosition != i) {
-        printf(" item inserted : %d, at position : %d\n" , valueToInsert,holePosition);
+        //printf(" item inserted : %d, at position : %d\n" , valueToInsert,holePosition);
         // insert the number at current hole
         intArray[holePosition] = valueToInsert;
      }
 
-     printf("Iteration %d#:",i);
-     display();
+     //printf("Iteration %d#:",i);
+     //display();
 
   } 
+  gettimeofday(&stop, 0);
+  printf("Time = %.6f\n\n",(stop.tv_sec + stop.tv_usec*1e-6) - (start.tv_sec + start.tv_usec*1e-6));
 }
 
 void main() {
