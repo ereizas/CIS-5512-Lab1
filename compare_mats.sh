@@ -11,3 +11,13 @@ done
 if [ -z "$diff_otpt" ]; then
     echo "All matrices are equivalent"
 fi
+n=5
+if [ $# -eq 1 ]; then
+    n=$1
+fi
+echo "Matrix multiplication N=$n:"
+for i in ${!results[@]}; do
+    runtime=$(sed -n 's/Time = \([0-9]*\.[0-9]*\)/\1/p' ${results[$i]})
+    performance=$(echo "scale=2; ($n*$n*$n) / $runtime" | bc)
+    echo ${results[$i]}: Runtime=$runtime Performance=$performance
+done
