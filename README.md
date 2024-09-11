@@ -1,4 +1,6 @@
 # Lab 1: Single Core Application Performance Study
 
 ## Run Instructions
-Give the shell script that generates permutations for matrix multiplication program executable permission:  chmod +x gen_mm_perms.sh
+1. Give the shell script executable permissions:  chmod +x *.sh
+2. Run "./run_for_metrics.sh" to run the matrix multiplications for the six permutations on matrices of size 1000, 2000, and 5000.
+3. Run "./compare_isorts.sh" to run the two insertion sort programs on an array of size 5000.
