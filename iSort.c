@@ -29,8 +29,6 @@ void display() {
 }
 
 void insertionSort() {
-  struct timeval start, stop;   
-  gettimeofday(&start, 0);
   int valueToInsert;
   int holePosition;
   int i;
@@ -61,8 +59,6 @@ void insertionSort() {
      //display();
 
   } 
-  gettimeofday(&stop, 0);
-  printf("Time = %.6f\n\n",(stop.tv_sec + stop.tv_usec*1e-6) - (start.tv_sec + start.tv_usec*1e-6));
 }
 
 void main() {
@@ -72,7 +68,11 @@ void main() {
   printf("Input Array: ");
   display();
   printline(50);
+  struct timeval start, stop;   
+  gettimeofday(&start, 0);
   insertionSort();
+  gettimeofday(&stop, 0);
+  printf("Time = %.6f\n\n",(stop.tv_sec + stop.tv_usec*1e-6) - (start.tv_sec + start.tv_usec*1e-6));
   printf("Output Array: ");
   display();
   printline(50);
