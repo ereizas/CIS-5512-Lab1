@@ -105,8 +105,8 @@ void main() {
    insertionSort(arr2,MAX/2+MAX%2);
    mergeSort(arr1,arr2);
    gettimeofday(&stop, 0);
-   printf("Time = %.6f\n\n",(stop.tv_sec + stop.tv_usec*1e-6) - (start.tv_sec + start.tv_usec*1e-6));
    printf("Output Array: ");
    display();
    printline(50);
+   printf("Time = %.6f\n\n",(stop.tv_sec + stop.tv_usec*1e-6) - (start.tv_sec + start.tv_usec*1e-6));
 }
