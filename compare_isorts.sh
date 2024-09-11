@@ -9,3 +9,6 @@ if [ -z $(diff <(head -n -3 "iSort_otpt.txt") <(head -n -3 "iSort2_otpt.txt")) ]
 else
     echo "The arrays are different."
 fi
+
+echo iSort Elapsed Time: $(sed -n 's/Time = \([0-9]*\.[0-9]*\)/\1/p' 'iSort_otpt.txt')
+echo iSort2 Elapsed Time: $(sed -n 's/Time = \([0-9]*\.[0-9]*\)/\1/p' 'iSort2_otpt.txt')
