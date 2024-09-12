@@ -9,7 +9,7 @@ for mat in "${results[@]:1}"; do
     fi
 done
 if [ -z "$diff_otpt" ]; then
-    echo "All matrices are equivalent"
+    echo "No difference"
 fi
 n=5
 if [ $# -eq 1 ]; then
