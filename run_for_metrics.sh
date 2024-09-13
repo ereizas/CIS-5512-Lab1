@@ -10,6 +10,7 @@ if [ $# -eq 3 ]; then
 fi
 while(($start<=$stop))
 do
+  echo "N=$start"
   ./gen_and_cmpr_mats.sh $start
   start=$(( start+step ))
 done
