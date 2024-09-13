@@ -2,7 +2,8 @@ n=5
 if [ $# -eq 1 ]; then
     n=$1
 fi
-
+echo -n "$n," >> "mmult_runtimes.csv"
+echo -n "$n," >> "mmult_performances.csv"
 cp matrixSource.c matrix.c
 sed -i s/#1/i/g matrix.c
 sed -i s/#2/j/g matrix.c
@@ -12,7 +13,8 @@ gcc -o matrix1 -DN=$n -DPRINT matrix.c
 runtime=$(sed -n 's/Time = \([0-9]*\.[0-9]*\)/\1/p' "first_mat.txt")
 performance=$(echo "scale=2; ($n*$n*$n) / $runtime" | bc)
 echo ijk: Runtime=$runtime Performance=$performance
-
+echo -n "$runtime,">>"mmult_runtimes.csv"
+echo -n "$performance,">>"mmult_performances.csv"
 perms=("ikj" "jik" "jki" "kij" "kji")
 for perm in ${perms[@]}; do
     cp matrixSource.c matrix.c
@@ -30,5 +32,9 @@ for perm in ${perms[@]}; do
     runtime=$(sed -n 's/Time = \([0-9]*\.[0-9]*\)/\1/p' second_mat.txt)
     performance=$(echo "scale=2; ($n*$n*$n) / $runtime" | bc)
     echo "$perm: Runtime=$runtime Performance=$performance"
+    echo -n "$runtime,">>"mmult_runtimes.csv"
+    echo -n "$performance,">>"mmult_performances.csv"
 done
+echo "" >>"mmult_runtimes.csv"
+echo "" >>"mmult_performances.csv"
 echo "No difference"
