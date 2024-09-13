@@ -10,7 +10,6 @@ if [ $# -eq 3 ]; then
 fi
 while(($start<=$stop))
 do
-  ./gen_mm_perms.sh $start
-  ./compare_mats.sh $start
+  ./gen_and_cmpr_mats.sh $start
   start=$(( start+step ))
 done
